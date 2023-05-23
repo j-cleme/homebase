@@ -12,7 +12,7 @@
 		<a
 			href={item.link}
 			target="_blank"
-			class="px-4 py-2 rounded-lg hover:bg-purple-600 transform duration-300"
+			class="px-4 py-2 rounded-lg hover:bg-purple-600 hover:text-black transform duration-300"
 		>
 			{item.title}
 		</a>
