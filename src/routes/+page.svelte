@@ -1,7 +1,7 @@
 <script lang="ts">
 	import IconCard from '$lib/IconCard.svelte';
 	import ListCard from '$lib/ListCard.svelte';
-	import { CalendarCheck2, Github, Inbox, Mail, Wrench, Youtube } from 'lucide-svelte';
+	import { CalendarCheck2, Github, Inbox, Mail, MessageSquare, Youtube } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 
 	import type { PageData } from './$types';
@@ -62,7 +62,7 @@
 <div
 	class="w-full h-screen bg-stone-900 text-stone-100 font-bold flex flex-col flex-wrap justify-center items-center gap-10"
 >
-	<main class="w-9/12 mx-auto grid grid-cols-2 gap-14 items-center justify-center">
+	<main class="w-9/12 mx-auto grid grid-cols-2 items-center justify-around">
 		<div class="flex flex-col gap-4 items-center justify-center">
 			<h1 id="time" class="text-7xl">{clocktime}</h1>
 			<h1 id="greeting" class="text-3xl font-normal">{currentGreeting}</h1>
@@ -74,7 +74,7 @@
 				<span class="font-normal">{data.result.weather[0].description}</span>
 			</h1>
 		</div>
-		<section id="cards" class="grid grid-flow-row grid-cols-3 gap-8">
+		<section id="cards" class="grid grid-flow-row grid-cols-3 gap-2">
 			<IconCard linkTo="https://github.com/j-cleme">
 				<Github />
 			</IconCard>
@@ -84,8 +84,8 @@
 			<IconCard linkTo="https://calendar.proton.me">
 				<CalendarCheck2 />
 			</IconCard>
-			<IconCard linkTo="https://mdigi.tools/">
-				<Wrench />
+			<IconCard linkTo="https://app.revolt.chat/">
+				<MessageSquare />
 			</IconCard>
 			<IconCard linkTo="https://mail.google.com">
 				<Inbox />
