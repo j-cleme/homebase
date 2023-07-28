@@ -24,7 +24,7 @@ export const load = (async ({ fetch }) => {
   //   value: 0
   // };
 
-  var tempUnit = 'C';
+  var tempUnit = 'F';
 
   const KELVIN = 273.15;
   const key = `8879687e7935ef481e0da5ee39a560b8`;
@@ -39,6 +39,7 @@ export const load = (async ({ fetch }) => {
   // .then(function (data) {
   let celsius = Math.floor(result.main.temp - KELVIN);
   result.main.temp = tempUnit == 'C' ? celsius : (celsius * 9) / 5 + 32;
+  // result.main.temp = 1.8*(K-273) + 32
   // result.weather[0].description = result.weather[0].description;
   // })
 

@@ -70,7 +70,7 @@
 		<div class="flex flex-col gap-4 items-center justify-center">
 			<h1 id="date" class="text-7xl">{date} {month} {year}</h1>
 			<h1 id="weather" class="text-4xl">
-				<span class="font-bold">{data.result.main.temp}°c</span>
+				<span class="font-bold">{data.result.main.temp}°f</span>
 				<span class="font-normal">{data.result.weather[0].description}</span>
 			</h1>
 		</div>
