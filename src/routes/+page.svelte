@@ -59,43 +59,41 @@
 	<title>Homebase</title>
 </svelte:head>
 
-<div
-	class="w-full h-screen bg-stone-900 text-stone-100 font-bold flex flex-col flex-wrap justify-center items-center gap-10"
+<main
+	class="w-full h-screen bg-stone-900 text-stone-100 font-bold grid grid-cols-2 justify-center justify-items-center gap-16"
 >
-	<main class="w-9/12 mx-auto grid grid-cols-2 items-center justify-around">
-		<div class="flex flex-col gap-4 items-center justify-center">
-			<h1 id="time" class="text-7xl">{clocktime}</h1>
-			<h1 id="greeting" class="text-3xl font-normal">{currentGreeting}</h1>
-		</div>
-		<div class="flex flex-col gap-4 items-center justify-center">
-			<h1 id="date" class="text-7xl">{date} {month} {year}</h1>
-			<h1 id="weather" class="text-4xl">
-				<span class="font-bold">{data.result.main.temp}°f</span>
-				<span class="font-normal">{data.result.weather[0].description}</span>
-			</h1>
-		</div>
-		<section id="cards" class="grid grid-flow-row grid-cols-3 gap-2">
-			<IconCard linkTo="https://github.com/j-cleme">
-				<Github />
-			</IconCard>
-			<IconCard linkTo="https://mail.proton.me">
-				<Mail />
-			</IconCard>
-			<IconCard linkTo="https://calendar.proton.me">
-				<CalendarCheck2 />
-			</IconCard>
-			<IconCard linkTo="https://app.revolt.chat/">
-				<MessageSquare />
-			</IconCard>
-			<IconCard linkTo="https://mail.google.com">
-				<Inbox />
-			</IconCard>
-			<IconCard linkTo="https://www.youtube.com/">
-				<Youtube />
-			</IconCard>
-		</section>
-		<section class="flex flex-col justify-center items-center">
-			<ListCard {linkList} />
-		</section>
-	</main>
-</div>
+	<div class="flex flex-col gap-4 items-center justify-center place-self-end">
+		<h1 id="time" class="text-7xl">{clocktime}</h1>
+		<h1 id="greeting" class="text-3xl font-normal">{currentGreeting}</h1>
+	</div>
+	<div class="flex flex-col gap-4 items-center justify-center justify-self-start self-end">
+		<h1 id="date" class="text-7xl">{date} {month} {year}</h1>
+		<h1 id="weather" class="text-4xl">
+			<span class="font-bold">{data.result.main.temp}°f</span>
+			<span class="font-normal">{data.result.weather[0].description}</span>
+		</h1>
+	</div>
+	<section id="cards" class="inline-grid grid-flow-row grid-cols-3 gap-4 justify-items-center max-w-fit h-fit justify-self-end">
+		<IconCard linkTo="https://github.com/j-cleme">
+			<Github />
+		</IconCard>
+		<IconCard linkTo="https://mail.proton.me">
+			<Mail />
+		</IconCard>
+		<IconCard linkTo="https://calendar.proton.me">
+			<CalendarCheck2 />
+		</IconCard>
+		<IconCard linkTo="https://app.revolt.chat/">
+			<MessageSquare />
+		</IconCard>
+		<IconCard linkTo="https://mail.google.com">
+			<Inbox />
+		</IconCard>
+		<IconCard linkTo="https://www.youtube.com/">
+			<Youtube />
+		</IconCard>
+	</section>
+	<section class="flex flex-col justify-center items-center place-self-start">
+		<ListCard {linkList} />
+	</section>
+</main>
