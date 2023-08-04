@@ -11,7 +11,7 @@
 	let time = new Date();
 	$: clocktime = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 	$: date = time.toLocaleString('default', { month: 'long' });
-	$: month = time.getMonth();
+	$: month = time.getDate();
 	$: year = time.getFullYear();
 
 	let linkList: { link: string; title: string }[] = [];
