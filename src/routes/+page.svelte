@@ -23,36 +23,37 @@
 	linkList.push({ title: 'last.fm', link: 'https://www.last.fm' });
 	linkList.push({ title: 'MusicBee', link: 'https://getmusicbee.com/' });
 
-	let greetings: string[] = ['good morning!', 'good afternoon.', 'good night.'];
-	let currentGreeting: string;
-	if (time.getHours() >= 5 && time.getHours() <= 11) {
-		currentGreeting = greetings[0];
-	}
-	if (time.getHours() >= 11 && time.getHours() <= 18) {
-		currentGreeting = greetings[1];
-	}
-	if (time.getHours() >= 19) {
-		currentGreeting = greetings[2];
-	}
+	// let greetings: string[] = ['good morning!', 'good afternoon.', 'good night.'];
+	// let currentGreeting: string;
+	// if (time.getHours() >= 5 && time.getHours() <= 11) {
+		// currentGreeting = greetings[0];
+	// }
+	// if (time.getHours() >= 11 && time.getHours() <= 18) {
+		// currentGreeting = greetings[1];
+	// }
+	// if (time.getHours() >= 19) {
+		// currentGreeting = greetings[2];
+	// }
 
-	onMount(() => {
-		const interval = setInterval(() => {
-			time = new Date();
-			if (time.getHours() >= 5 && time.getHours() <= 11) {
-				currentGreeting = greetings[0];
-			}
-			if (time.getHours() >= 11 && time.getHours() <= 18) {
-				currentGreeting = greetings[1];
-			}
-			if (time.getHours() >= 19) {
-				currentGreeting = greetings[2];
-			}
-		}, 1000);
+	// onMount(() => {
+		// const interval = setInterval(() => {
+			// time = new Date();
+			// if (time.getHours() >= 5 && time.getHours() <= 11) {
+				// currentGreeting = greetings[0];
+			// }
+			// if (time.getHours() >= 11 && time.getHours() <= 18) {
+				// currentGreeting = greetings[1];
+			// }
+			// if (time.getHours() >= 19) {
+				// currentGreeting = greetings[2];
+			// }
+		// }, 1000);
 
-		return () => {
-			clearInterval(interval);
-		};
-	});
+		// return () => {
+			// clearInterval(interval);
+		// };
+	// });
+	console.log(data)
 </script>
 
 <svelte:head>
@@ -64,13 +65,12 @@
 >
 	<div class="flex flex-col gap-4 items-center justify-center place-self-end">
 		<h1 id="time" class="text-7xl">{clocktime}</h1>
-		<h1 id="greeting" class="text-3xl font-normal">{currentGreeting}</h1>
+		<h1 id="greeting" class="text-3xl font-normal">currentGreeting}</h1>
 	</div>
 	<div class="flex flex-col gap-4 items-center justify-center justify-self-start self-end">
 		<h1 id="date" class="text-7xl">{date} {month} {year}</h1>
-		<h1 id="weather" class="text-4xl">
-			<span class="font-bold">{data.result.main.temp}°f</span>
-			<span class="font-normal">{data.result.weather[0].description}</span>
+		<h1 id="weather" class="text-4xl flex ">
+			<span class="font-bold">{data.result.current_weather.temperature}°f</span>
 		</h1>
 	</div>
 	<section id="cards" class="inline-grid grid-flow-row grid-cols-3 gap-4 justify-items-center max-w-fit h-fit justify-self-end">
