@@ -11,7 +11,7 @@
 	let time = new Date();
 	$: clocktime = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 	$: date = time.toLocaleString('default', { month: 'long' });
-	$: month = time.getMonth();
+	$: month = time.getDate();
 	$: year = time.getFullYear();
 
 	let linkList: { link: string; title: string }[] = [];
@@ -20,7 +20,7 @@
 		title: 'Youtube',
 		link: 'https://www.youtube.com/playlist?list=PL1Dm6N2QRmAkw5j-TSjiG9klyIKybppub'
 	});
-	linkList.push({ title: 'last.fm', link: 'https://www.last.fm' });
+	linkList.push({ title: 'musicbrainz', link: 'https://musicbrainz.org/' });
 	linkList.push({ title: 'MusicBee', link: 'https://getmusicbee.com/' });
 
 	// let greetings: string[] = ['good morning!', 'good afternoon.', 'good night.'];
