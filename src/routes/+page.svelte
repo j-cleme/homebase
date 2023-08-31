@@ -2,7 +2,7 @@
 	import IconCard from '$lib/IconCard.svelte';
 	import ListCard from '$lib/ListCard.svelte';
 	import { CalendarCheck2, Github, Inbox, Mail, MessageSquare, Youtube } from 'lucide-svelte';
-	import { onMount } from 'svelte';
+	// import { onMount } from 'svelte';
 
 	import type { PageData } from './$types';
 
@@ -69,8 +69,9 @@
 	</div>
 	<div class="flex flex-col gap-4 items-center justify-center justify-self-start self-end">
 		<h1 id="date" class="text-7xl">{date} {month} {year}</h1>
-		<h1 id="weather" class="text-4xl flex ">
-			<span class="font-bold">{data.result.current_weather.temperature}°f</span>
+		<h1 id="weather" class="text-4xl flex gap-8">
+			<span class="font-bold">{data.result.data[0].temp}°f</span>
+			<span class="font-bold">{data.result.data[0].weather.description}</span>
 		</h1>
 	</div>
 	<section id="cards" class="inline-grid grid-flow-row grid-cols-3 gap-4 justify-items-center max-w-fit h-fit justify-self-end">
