@@ -2,7 +2,7 @@
 	import IconCard from '$lib/IconCard.svelte';
 	import ListCard from '$lib/ListCard.svelte';
 	import { CalendarCheck2, Github, Inbox, Mail, MessageSquare, Youtube } from 'lucide-svelte';
-	// import { onMount } from 'svelte';
+	import { onMount } from 'svelte';
 
 	import type { PageData } from './$types';
 
@@ -10,7 +10,7 @@
 
 	let time = new Date();
 	$: clocktime = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-	$: date = time.toLocaleString('default', { month: 'long' });
+	$: date = time.toLocaleString('default', { month: 'short' });
 	$: month = time.getDate();
 	$: year = time.getFullYear();
 
@@ -23,36 +23,38 @@
 	linkList.push({ title: 'musicbrainz', link: 'https://musicbrainz.org/' });
 	linkList.push({ title: 'MusicBee', link: 'https://getmusicbee.com/' });
 
-	// let greetings: string[] = ['good morning!', 'good afternoon.', 'good night.'];
-	// let currentGreeting: string;
-	// if (time.getHours() >= 5 && time.getHours() <= 11) {
-		// currentGreeting = greetings[0];
-	// }
-	// if (time.getHours() >= 11 && time.getHours() <= 18) {
-		// currentGreeting = greetings[1];
-	// }
-	// if (time.getHours() >= 19) {
-		// currentGreeting = greetings[2];
-	// }
+	let weather_image = "https://cdn.weatherbit.io/static/img/icons/" + data.result.data[0].weather.icon + ".png"
+	
+	let greetings: string[] = ['good morning!', 'good afternoon.', 'good night.'];
+	let currentGreeting: string;
+	if (time.getHours() >= 5 && time.getHours() <= 11) {
+		currentGreeting = greetings[0];
+	}
+	if (time.getHours() >= 11 && time.getHours() <= 18) {
+		currentGreeting = greetings[1];
+	}
+	if (time.getHours() >= 19) {
+		currentGreeting = greetings[2];
+	}
 
-	// onMount(() => {
-		// const interval = setInterval(() => {
-			// time = new Date();
-			// if (time.getHours() >= 5 && time.getHours() <= 11) {
-				// currentGreeting = greetings[0];
-			// }
-			// if (time.getHours() >= 11 && time.getHours() <= 18) {
-				// currentGreeting = greetings[1];
-			// }
-			// if (time.getHours() >= 19) {
-				// currentGreeting = greetings[2];
-			// }
-		// }, 1000);
+	onMount(() => {
+		const interval = setInterval(() => {
+			time = new Date();
+			if (time.getHours() >= 5 && time.getHours() <= 11) {
+				currentGreeting = greetings[0];
+			}
+			if (time.getHours() >= 11 && time.getHours() <= 18) {
+				currentGreeting = greetings[1];
+			}
+			if (time.getHours() >= 19) {
+				currentGreeting = greetings[2];
+			}
+		}, 1000);
 
-		// return () => {
-			// clearInterval(interval);
-		// };
-	// });
+		return () => {
+			clearInterval(interval);
+		};
+	});
 	console.log(data)
 </script>
 
@@ -65,13 +67,14 @@
 >
 	<div class="flex flex-col gap-4 items-center justify-center place-self-end">
 		<h1 id="time" class="text-7xl">{clocktime}</h1>
-		<h1 id="greeting" class="text-3xl font-normal">currentGreeting}</h1>
+		<h1 id="greeting" class="text-3xl font-normal">{currentGreeting}</h1>
 	</div>
 	<div class="flex flex-col gap-4 items-center justify-center justify-self-start self-end">
 		<h1 id="date" class="text-7xl">{date} {month} {year}</h1>
 		<h1 id="weather" class="text-4xl flex gap-8">
 			<span class="font-bold">{data.result.data[0].temp}°f</span>
-			<span class="font-bold">{data.result.data[0].weather.description}</span>
+			<span class="font-bold flex flex-row gap-2 justify-center items-center"><img src={weather_image} alt="weather icon" width=50 height=50 />
+			{data.result.data[0].weather.description}</span>
 		</h1>
 	</div>
 	<section id="cards" class="inline-grid grid-flow-row grid-cols-3 gap-4 justify-items-center max-w-fit h-fit justify-self-end">
