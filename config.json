@@ -1,0 +1,52 @@
+{
+  timezone: "est",
+  buttons: [
+    {
+      "icon": "github",
+      "link": "https:/github.com/jcleme"
+    },
+    {
+      "icon": "mail",
+      "link": "https://mail.proton.me"
+    },
+    {
+      "icon": "calendar-check-2",
+      "link": "https://calendar.proton.me"
+    },
+    {
+      "icon": "message-square",
+      "link": "https://app.revolt.chat/"
+    },
+    {
+      "icon": "inbox",
+      "link": "https://mail.google.com"
+    },
+    {
+      "icon": "youtube",
+      "link": "https://www.youtube.com/"
+    }
+  ],
+  lists: [
+    {
+      "icon": "music",
+      "links": [
+        {
+          "title": "Bandcamp",
+          "link": "https://bandcamp.com/"
+        },
+        {
+          "title": "Youtube",
+          "link": "https://www.youtube.com/playlist?list=PL1Dm6N2QRmAkw5j-TSjiG9klyIKybppub"
+        },
+        {
+          "title": "musicbrainz",
+          "link": "https://musicbrainz.org/"
+        },
+        {
+          "title": "MusicBee",
+          "link": "https://getmusicbee.com/"
+        }
+      ]
+    }
+  ]
+}
