@@ -14,15 +14,6 @@
 	$: month = time.getDate();
 	$: year = time.getFullYear();
 
-	let linkList: { link: string; title: string }[] = [];
-	linkList.push({ title: 'Bandcamp', link: 'https://bandcamp.com/' });
-	linkList.push({
-		title: 'Youtube',
-		link: 'https://www.youtube.com/playlist?list=PL1Dm6N2QRmAkw5j-TSjiG9klyIKybppub'
-	});
-	linkList.push({ title: 'musicbrainz', link: 'https://musicbrainz.org/' });
-	linkList.push({ title: 'MusicBee', link: 'https://getmusicbee.com/' });
-
 	let weather_image = "https://cdn.weatherbit.io/static/img/icons/" + data.result.data[0].weather.icon + ".png"
 	
 	let greetings: string[] = ['good morning!', 'good afternoon.', 'good night.'];
