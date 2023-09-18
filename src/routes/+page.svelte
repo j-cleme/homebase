@@ -46,7 +46,6 @@
 			clearInterval(interval);
 		};
 	});
-	console.log(data)
 </script>
 
 <svelte:head>
@@ -89,6 +88,6 @@
 		</IconCard>
 	</section>
 	<section class="flex flex-col justify-center items-center place-self-start">
-		<ListCard {linkList} />
+		<ListCard linkList={data.config.lists[0]} />
 	</section>
 </main>

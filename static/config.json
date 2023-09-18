@@ -1,6 +1,6 @@
 {
-  timezone: "est",
-  buttons: [
+  "timezone": "est",
+  "buttons": [
     {
       "icon": "github",
       "link": "https:/github.com/jcleme"
@@ -26,7 +26,7 @@
       "link": "https://www.youtube.com/"
     }
   ],
-  lists: [
+  "lists": [
     {
       "icon": "music",
       "links": [
@@ -36,7 +36,7 @@
         },
         {
           "title": "Youtube",
-          "link": "https://www.youtube.com/playlist?list=PL1Dm6N2QRmAkw5j-TSjiG9klyIKybppub"
+          "link": "https://music.youtube.com/"
         },
         {
           "title": "musicbrainz",

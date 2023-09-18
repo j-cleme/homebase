@@ -9,7 +9,8 @@ export const load = (async ({ fetch }) => {
   
   // TODO fetch settings (timezone, buttons, list items, etc.) from json file
   
-  const config = await fetch("config.json")
+  const getconfig = await fetch("config.json")
+  const config = await getconfig.json()
 
   return { result, config }
 }) satisfies PageLoad
