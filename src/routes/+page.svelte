@@ -14,8 +14,9 @@
 	$: month = time.getDate();
 	$: year = time.getFullYear();
 
-	let weather_image = "https://cdn.weatherbit.io/static/img/icons/" + data.result.data[0].weather.icon + ".png"
-	
+	let weather_image =
+		'https://cdn.weatherbit.io/static/img/icons/' + data.result.data[0].weather.icon + '.png';
+
 	let greetings: string[] = ['good morning!', 'good afternoon.', 'good night.'];
 	let currentGreeting: string;
 	if (time.getHours() >= 5 && time.getHours() <= 11) {
@@ -24,7 +25,7 @@
 	if (time.getHours() >= 11 && time.getHours() <= 18) {
 		currentGreeting = greetings[1];
 	}
-	if (time.getHours() >= 19) {
+	if (time.getHours() >= 19 || time.getHours() <= 5) {
 		currentGreeting = greetings[2];
 	}
 
@@ -37,7 +38,7 @@
 			if (time.getHours() >= 11 && time.getHours() <= 18) {
 				currentGreeting = greetings[1];
 			}
-			if (time.getHours() >= 19) {
+			if (time.getHours() >= 19 || time.getHours() <= 5) {
 				currentGreeting = greetings[2];
 			}
 		}, 1000);
@@ -63,11 +64,16 @@
 		<h1 id="date" class="text-7xl">{date} {month} {year}</h1>
 		<h1 id="weather" class="text-4xl flex gap-8">
 			<span class="font-bold">{data.result.data[0].temp}°f</span>
-			<span class="font-bold flex flex-row gap-2 justify-center items-center"><img src={weather_image} alt="weather icon" width=50 height=50 />
-			{data.result.data[0].weather.description}</span>
+			<span class="font-bold flex flex-row gap-2 justify-center items-center"
+				><img src={weather_image} alt="weather icon" width="50" height="50" />
+				{data.result.data[0].weather.description}</span
+			>
 		</h1>
 	</div>
-	<section id="cards" class="inline-grid grid-flow-row grid-cols-3 gap-4 justify-items-center max-w-fit h-fit justify-self-end">
+	<section
+		id="cards"
+		class="inline-grid grid-flow-row grid-cols-3 gap-4 justify-items-center max-w-fit h-fit justify-self-end"
+	>
 		<IconCard linkTo="https://github.com/j-cleme">
 			<Github />
 		</IconCard>
